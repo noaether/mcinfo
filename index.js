@@ -56,4 +56,4 @@ client.on("message", async (msg) => {
 
 keepAlive();
 
-client.login("NzI0Njc3MTg3MjgxNjE2OTY3.XvDqOQ.a7xrrMdkb1GHmQnsHOyXpUzipao");
+client.login(process.env.TOKEN);
