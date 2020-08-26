@@ -1,3 +1,9 @@
+# McInfo
+
+1. [ENGLISH](#ENGLISH)
+2. [FRANÇAIS](#FRANÇAIS)
+3. [ESPAÑOL](#ESPAÑOL)
+
 ## ENGLISH
 
 [EN] This bot, MCINFO, is a multi-language bot, used to get information about Minecraft services.
