@@ -1,14 +1,16 @@
-const express = require('express');
+const express = require("express");
+const bodyParser = require("body-parser");
+const router = express.Router();
+const keepAliveApp = express();
+const voteApp = express();
+const emoji = require("emoji-log");
 
-const server = express();
-
-server.all('/', (req, res)=>{
+keepAliveApp.all('/', (req, res)=>{
     res.send('Your bot is alive!')
-    console.log(`Request done`);
 })
 
 function keepAlive(){
-    server.listen(3000, ()=>{console.log("Server is Ready!")});
+    keepAliveApp.listen(3000, ()=>{console.emoji('🖥 ' , ' KeepAlive Server is ON')});
 }
 
 module.exports = keepAlive;

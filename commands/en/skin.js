@@ -18,15 +18,21 @@ module.exports.run = async (client, msg, args) => {
       msg.channel.send(skinEmbed);
 
   } catch (e) {
-    const helpEmbed = new Discord.MessageEmbed()
+
+    const errorEmbed = new Discord.MessageEmbed()
       .setColor("#FF0000")
       .setTitle("Erreur")
-      .addField("Une erreur est survenue", "Nous n'avons pas réussi à rejoindre le serveur Mojang, ou vous avez le mauvais pseudonyme")
+      .addField(
+        "An error occured",
+        "Sadly, we didnt manage to get to the requested server. It either is off, or you dont have the correct adress. If you beleive this is not normal, please contact pocoyo#8008"
+      )
       .setFooter("Made with love by Pocoyo", " ");
+    msg.channel.send(errorEmbed);
   };
 };
 
 module.exports.help = {
-  name: "skin",
+	name: "skin-en",
+  language: "en"
 };
 
