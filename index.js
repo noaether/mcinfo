@@ -6,7 +6,9 @@ const emoji = require("emoji-log");
 const loop = require("repeat");
 const config = require("./config.json");
 const keepAlive = require("./server.js");
+const { Webhook, MessageBuilder } = require('discord-webhook-node');
 
+const hook = new Webhook(process.env.WEBHOOK);
 let db = new FreshDB();
 const client = new Discord.Client();
 const sleep = (waitTimeInMs) => new Promise(resolve => setTimeout(resolve, waitTimeInMs));
@@ -59,8 +61,8 @@ client.on("message", async (msg) => {
     ) {
       msg.channel.send(
         "The required permission to change this setting is Administrator." +
-          "\n" +
-          "La permission requise pour changer cette confirguration est Administrateur"
+        "\n" +
+        "La permission requise pour changer cette confirguration est Administrateur"
       );
     }
 
@@ -92,10 +94,10 @@ client.on("message", async (msg) => {
   if (!db.get(`${msg.guild.id}`)) {
     msg.channel.send(
       "Choose your language by doing **~lang en**" +
-        "\n" +
-        "Choissisez votre language en           envoyant **~lang fr**" + 
-            "\n" + 
-              "Elija su idioma haciendo **~lang es**"
+      "\n" +
+      "Choissisez votre language en           envoyant **~lang fr**" +
+      "\n" +
+      "Elija su idioma haciendo **~lang es**"
     );
   }
 
@@ -106,7 +108,20 @@ client.on("message", async (msg) => {
 });
 
 client.on("guildCreate", (guild) => {
-  setTimeout(function () {
+  const IMAGE_URL = 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/259/new-button_1f195.png';
+  hook.setUsername('New Server !');
+  hook.setAvatar(IMAGE_URL);
+
+const newServerEmbed = new MessageBuilder()
+.setTitle('New Server Joined !')
+.addField('New server', guild.name)
+.setColor('#00b0f4')
+.setTimestamp();
+
+hook.send(newServerEmbed);
+
+
+  setTimeout(function() {
     const channel = guild.channels.cache.find(
       (channel) =>
         channel.type === "text" &&
@@ -114,8 +129,8 @@ client.on("guildCreate", (guild) => {
     );
     channel.send(
       "Hey ! Thanks for adding me on your server ! Choose your language by doing **~lang en** (for english), or **~lang fr** (for french)" +
-        "\n" +
-        "Salut ! Merci de m'avoir ajouté sur votre serveur ! Choissisez votre language en envoyant **~ lang en** (pour anglais) ou **~lang fr** (pour français) !"
+      "\n" +
+      "Salut ! Merci de m'avoir ajouté sur votre serveur ! Choissisez votre language en envoyant **~ lang en** (pour anglais) ou **~lang fr** (pour français) !"
     );
     console.log("New server joined !");
   }, 3000);

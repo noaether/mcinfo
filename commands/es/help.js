@@ -7,11 +7,12 @@ module.exports.run = async (client, msg, args) => {
     .setTitle("Página de ayuda")
     .addField("~help", "Muestra esta página de ayuda")
     .addField(
-      "~online",
+      "~online <servidor>",
       "Envía el número de jugadores en línea en el servidor dado"
     )
-    .addField("~ping", "Muestra el ping del servidor dado")
-    .addField("~ip", "Envía la IP directa del servidor dado")
+    .addField("~ping <servidor>", "Muestra el ping del servidor dado")
+    .addField("~ip <servidor>", "Envía la IP directa del servidor dado")
+    .addField ("~skin <jugador>", "Mostrar el skin del jugador dado")
     .setFooter("Hecho con amor por Pocoyó", " ");
 
   msg.channel.send(helpEmbed);

@@ -3,17 +3,26 @@ const fetch = require("node-fetch");
 
 module.exports.run = async (client, msg, args) => {
   try {
-    let ip = await fetch("https://api.mcsrvstat.us/2/" + args[0])
+    let info = await fetch("https://api.mcsrvstat.us/2/" + args[0])
       .then((res) => res.json())
-      .then((json) => json.ip);
 
-    const ipEmbed = new Discord.MessageEmbed()
-      .setColor("#FF00FF")
-      .setImage(`https://eu.mc-api.net/v3/server/favicon/${args[0]}`)
-      .addField("IP", ip)
-      .setFooter("Made with love by Pocoyo", " ");
+    const ping = await fetch(`https://api.minetools.eu/ping/${args[0]}/25565`)
+      .then((res) => res.json())
+      .then((json) => json.latency);
 
-    msg.channel.send(ipEmbed);
+
+  const infoEmbed = new Discord.MessageEmbed()
+    .setColor("#FF00FF")
+    .setTitle("Help page")
+    .addField("IP", info.ip)
+    .addField(
+      "ONLINE",
+      info.players.online + '/'  + info.players.max
+    )
+    .addField("PING", ping + " ms")
+    .setFooter("Made with love by Pocoyo", " ");
+
+  msg.channel.send(infoEmbed);    
   } catch (e) {
     const errorEmbed = new Discord.MessageEmbed()
       .setColor("#FF0000")
@@ -28,6 +37,6 @@ module.exports.run = async (client, msg, args) => {
 };
 
 module.exports.help = {
-	name: "ip-en",
+  name: "all-en",
   language: "en"
 };
