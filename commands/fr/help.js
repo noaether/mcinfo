@@ -12,6 +12,7 @@ module.exports.run = async (client, msg, args) => {
     )
     .addField("~ping <serveur>", "Affiche le ping du serveur donné")
     .addField("~ip <serveur>", "Affiche le ip directe du serveur donné")
+    .addField("~all <serveur>", "Affiche toute l'information disponible sur le serveur")
     .addField("~skin <joueur>", "Affiche le skin du joueur donné")    
     .setFooter("Made with love by Pocoyo", " ");
 
@@ -22,3 +23,4 @@ module.exports.help = {
 	name: "help-fr",
   language: "fr"
 };
+
