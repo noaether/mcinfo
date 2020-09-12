@@ -60,32 +60,32 @@ client.on("message", async (msg) => {
       msg.author.id !== "370367253205745667"
     ) {
       msg.channel.send(
-        "The required permission to change this setting is Administrator." +
-        "\n" +
-        "La permission requise pour changer cette confirguration est Administrateur"
+        "The required permission to change this setting is Administrator."
       );
     }
-
-    if (args[0] === "en") {
-      db.set(msg.guild.id, args[0]);
-      msg.channel.send(
-        "The chosen language is **english**. Thank you for using MCINFO !"
-      );
-      return;
-    } else if (args[0] === "fr") {
-      db.set(msg.guild.id, args[0]);
-      msg.channel.send(
-        "Le language choisit est **français**. Merci d'utiliser MCINFO !"
-      );
-      return;
-    } else if (args[0] === "es") {
-      db.set(msg.guild.id, args[0]);
+    
+    switch(args[0]) {
+      case en:
+        db.set(msg.guild.id, 'en')
+        msg.channel.send(
+          "The chosen language is **english**. Thank you for using MCINFO !"
+          );
+        break;
+      case es:
+        db.set(msg.guild.id,'es');
+        msg.channel.send(
+        "El idioma elegido es el español. ¡Gracias por usar MCINFO!"
+        );
+        break;
+      case fr: 
+      db.set(msg.guild.id, 'fr');
       msg.channel.send(
         "El idioma elegido es el español. ¡Gracias por usar MCINFO!"
       );
-    } else {
-      msg.channel.send("Invalid argument" + "\n" + "Argument invalide" + "\n" + "Argumento no válido");
-      return;
+      default: 
+        msg.channel.send('Please choose a language. The default language is **en**')
+        db.set(msg.guild.id, 'en');
+
     }
   }
 
@@ -128,9 +128,10 @@ hook.send(newServerEmbed);
         channel.permissionsFor(guild.me).has("SEND_MESSAGES")
     );
     channel.send(
-      "Hey ! Thanks for adding me on your server ! Choose your language by doing **~lang en** (for english), or **~lang fr** (for french)" +
+      "Hey ! Thanks for adding me on your server ! Choose your language by doing **~lang en**" +
       "\n" +
-      "Salut ! Merci de m'avoir ajouté sur votre serveur ! Choissisez votre language en envoyant **~ lang en** (pour anglais) ou **~lang fr** (pour français) !"
+      "Salut ! Merci de m'avoir ajouté sur votre serveur ! Choissisez votre language en envoyant **~lang fr** (pour français) !" + '\n' + 
+      "¡Hola! ¡Gracias por agregarme a su servidor! ¡Elija su idioma enviando **~lang es** (para español)"
     );
     console.log("New server joined !");
   }, 3000);
@@ -139,3 +140,4 @@ hook.send(newServerEmbed);
 keepAlive();
 
 client.login(process.env.TOKEN);
+
