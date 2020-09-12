@@ -14,6 +14,7 @@ module.exports.run = async (client, msg, args) => {
   const infoEmbed = new Discord.MessageEmbed()
     .setColor("#FF00FF")
     .setTitle("Página de información")
+    .setImage(`https://eu.mc-api.net/v3/server/favicon/${args[0]}`)
     .addField("IP", info.ip)
     .addField(
       "JUGADORES EN LÍNEA",
