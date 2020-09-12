@@ -3,7 +3,6 @@ const Discord = require("discord.js");
 const fs = require("fs");
 const FreshDB = require("fresh.db");
 const emoji = require("emoji-log");
-const loop = require("repeat");
 const config = require("./config.json");
 const keepAlive = require("./server.js");
 const { Webhook, MessageBuilder } = require('discord-webhook-node');
@@ -23,13 +22,16 @@ const loadCommands = (dir = "./commands/") => {
       .readdirSync(`${dir}/${dirs}/`)
       .filter((files) => files.endsWith(".js"));
 
+
     for (const file of commands) {
+      console.time()
       const getFileName = require(`${dir}/${dirs}/${file}`);
       client.commands.set(getFileName.help.name, getFileName);
       console.emoji(
         "✅ ",
         ` : ${getFileName.help.name} --- ${getFileName.help.language}`
       );
+      console.timeEnd();
     }
   });
 };
