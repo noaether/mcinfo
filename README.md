@@ -2,7 +2,7 @@
 
 1. [ENGLISH](#ENGLISH)
 2. [FRANÇAIS](#FRANÇAIS)
-3. [ESPAÑOL](#ESPAÑOL)
+3. [ESPAÑOL](#ESPANOL)
 
 ## ENGLISH
 
@@ -48,7 +48,7 @@ Don't forget to set your language before using it by doing "~lang en"
 
 ~head : Envoie le render 3D de la tête du joueur donné
 
-## ESPAGÑOL
+## ESPAGNOL
 
 [ES] Este bot, MCINFO, es un bot en varios idiomas que se utiliza para obtener información sobre los servicios de Minecraft.
 
