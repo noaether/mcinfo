@@ -23,4 +23,3 @@ module.exports.help = {
 	name: "help-en",
   language: "en"
 };
-
