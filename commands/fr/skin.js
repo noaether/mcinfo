@@ -5,14 +5,10 @@ module.exports.run = async (client, msg, args) => {
 
   try {
 
-    let uuid = await fetch("https://playerdb.co/api/player/minecraft/" + args[0])
-    .then((res) => res.json())
-    .then((json) => json.data.player.raw_id);
-
     let skinEmbed = new Discord.MessageEmbed()
       .setColor("#FF00FF")
       .setTitle("Skin Minecraft")
-      .setImage("https://crafatar.com/renders/body/" + uuid)
+      .setImage(`https://cravatar.eu/3d/${args[0]}/250`)
       .setFooter("Made with love by Pocoyo", " ");
 
       msg.channel.send(skinEmbed);
@@ -30,4 +26,5 @@ module.exports.help = {
 	name: "skin-fr",
   language: "fr"
 };
+
 
