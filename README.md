@@ -22,6 +22,10 @@ Don't forget to set your language before using it by doing "~lang en"
 
 ~skin : Get user's skin
 
+~all : Gets all the information of the given server
+
+~head : Sends the 3d render of the player's head
+
 ## FRANÇAIS
 
 [FR] Ce bot, MCINFO, est un bot multi-languages, utile afinde récupérer des informations sur les services de Minecraft Par exemple : Joueurs en ligne, IP directe, ping, et plus !
@@ -32,13 +36,17 @@ Don't forget to set your language before using it by doing "~lang en"
 
 ~help : Page d'aide
 
-~online = Récupère le nombre des joueurs en ligne
+~online : Récupère le nombre des joueurs en ligne
 
-~ping = Récupère le ping du serveur
+~ping : Récupère le ping du serveur
 
-~ip = Récupère l'IP directe du serveur (x.x.x.x)
+~ip : Récupère l'IP directe du serveur (x.x.x.x)
 
-~skin = Récupère le skin du joueur
+~skin : Récupère le skin du joueur
+
+~all : Récupère toutes les informations sur le serveur donné
+
+~head : Envoie le render 3D de la tête du joueur donné
 
 ## ESPAGÑOL
 
@@ -48,12 +56,17 @@ No olvide configurar su idioma antes de usarlo haciendo "~lang es"
 
 ## Lista de comandos
 
-~help: Bueno, ayuda
+~help : Bueno, ayuda
 
-~ online: Obtén el número de jugadores online
+~online : Obtén el número de jugadores online
 
-~ ping: Obtener ping del servidor
+~ping : Obtener ping del servidor
 
-~ ip: Obtiene la IP directa del servidor (x.x.x.x)
+~ip : Obtiene la IP directa del servidor (x.x.x.x)
 
-~ skin: Obtener la piel del usuario
+~skin : Obtener la piel del usuario
+
+~all : Envía toda la información sobre el servidor dado
+
+~head : Muestra la cabeza del jugador dado
+
