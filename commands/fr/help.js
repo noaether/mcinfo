@@ -7,11 +7,14 @@ module.exports.run = async (client, msg, args) => {
     .setTitle("Page d'aide du bot MC INFO")
     .addField("~help", "Affiche cette page d'aide")
     .addField(
-      "~online",
+      "~online <serveur>",
       "Affiche le nombre de joueurs connectés sur le serveur donné"
     )
-    .addField("~ping", "Affiche le ping du serveur donné")
-    .addField("~ip", "Affiche le ip directe du serveur donné")
+    .addField("~ping <serveur>", "Affiche le ping du serveur donné")
+    .addField("~ip <serveur>", "Affiche le ip directe du serveur donné")
+    .addField("~all <serveur>", "Affiche toute l'information disponible sur le serveur")
+    .addField("~head <joueur>" , "Affiche la tête du joueur donné")
+    .addField("~skin <joueur>", "Affiche le skin du joueur donné")    
     .setFooter("Made with love by Pocoyo", " ");
 
   msg.channel.send(helpEmbed);

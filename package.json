@@ -1,22 +1,23 @@
 {
-  "name": "discordbotj2cfinal",
-  "version": "1.0.0",
-  "description": "",
+  "name": "McInfo",
+  "version": "1.2.4",
+  "description": "Discord Bot Package to fetch informations about different minecraft services",
   "main": "index.js",
+  "repository": "https://https://github.com/Pocoyo-dev/mcinfo#readme",
+  "homepage": "https://https://github.com/Pocoyo-dev/mcinfo#readme",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "all": "node index.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "PocoyoCode",
+  "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "@calipsa/timer": "^1.0.0",
+    "discord-webhook-node": "^1.1.8",
     "discord.js": "^12.3.1",
     "emoji-log": "^1.0.2",
     "express": "^4.17.1",
-    "fresh.db": "^1.0.51",
-    "log-symbols": "^4.0.0",
-    "node-fetch": "^2.6.0",
-    "repeat": "^1.2.0",
-    "wait": "^0.1.0"
+    "fresh.db": "^1.0.53",
+    "node-fetch": ">=2.6.1",
+    "timeTraveller": "^0.2.1"
   }
 }

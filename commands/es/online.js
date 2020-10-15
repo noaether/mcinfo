@@ -22,7 +22,7 @@ module.exports.run = async (client, msg, args) => {
       .setColor("#FF00FF")
       .addField(
         "Jugadores en línea",
-        `${onlineNow}/${onlineMax} están en línea en` + args[0]
+        `${onlineNow}/${onlineMax} están en línea en ` + args[0]
       )
       .setFooter("Hecho con amor por Pocoyó", " ");
 

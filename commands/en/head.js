@@ -5,13 +5,13 @@ module.exports.run = async (client, msg, args) => {
 
   try {
 
-    let skinEmbed = new Discord.MessageEmbed()
+    let headEmbed = new Discord.MessageEmbed()
       .setColor("#FF00FF")
-      .setTitle("Skin Minecraft")
-      .setImage(`https://cravatar.eu/3d/${args[0]}/250`)
+      .setTitle("Minecraft Head")
+      .setImage(`https://cravatar.eu/helmhead/${args[0]}`)
       .setFooter("Made with love by Pocoyo", " ");
 
-      msg.channel.send(skinEmbed);
+      msg.channel.send(headEmbed);
 
   } catch (e) {
 
@@ -28,7 +28,7 @@ module.exports.run = async (client, msg, args) => {
 };
 
 module.exports.help = {
-	name: "skin-en",
+	name: "head-en",
   language: "en"
 };
 
