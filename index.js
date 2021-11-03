@@ -1,4 +1,3 @@
-const keepAlive = require(`./public/server.js`)
 const Discord = require(`discord.js`);
 
 // PACKAGES FOR THE BOT
