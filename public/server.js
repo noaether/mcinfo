@@ -1,4 +1,4 @@
-const express = require(`express`);
+/* const express = require(`express`);
 const keepAliveApp = express();
 const path = require(`path`);
 const emoji = require(`emoji-log`);
@@ -31,6 +31,6 @@ function keepAlive() {
     duration3 = duration3 / 1000;
     console.emoji(`🖥 `, ` KeepAlive ON --- ` + duration3 + ` ms`);
   });
-}
+} */
 
 module.exports = keepAlive;
