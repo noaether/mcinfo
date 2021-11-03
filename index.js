@@ -141,7 +141,6 @@ client.on(`message`, async (msg) => {
     commandFile.run(client, msg, args);
     let duration1 = end1();
     let consoleDuration = `${duration1}`
-    console.log(duration1.lenght)
     duration1 = duration1 * 1000;
     duration1 = Math.round(duration1);
     duration1 = duration1 + 1;
