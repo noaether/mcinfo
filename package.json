@@ -6,7 +6,7 @@
   "repository": "https://https://github.com/Pocoyo-dev/mcinfo#readme",
   "homepage": "https://https://github.com/Pocoyo-dev/mcinfo#readme",
   "scripts": {
-    "all": "node index.js"
+    "start": "node index.js"
   },
   "author": "PocoyoCode",
   "license": "MIT",
