@@ -183,6 +183,4 @@ client.on(`guildCreate`, (guild) => {
   }, 3000);
 });
 
-keepAlive();
-
 client.login(process.env.TOKEN);
