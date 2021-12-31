@@ -1,3 +1,4 @@
+const keepAlive = require(`./public/server.js`);
 const Discord = require(`discord.js`);
 
 // PACKAGES FOR THE BOT
@@ -8,15 +9,32 @@ const config = { prefix: `~` };
 const timer = require(`@calipsa/timer`);
 const { Webhook, MessageBuilder } = require(`discord-webhook-node`);
 
+
+
 // CUSTOM OBJECTS AND PROMISES
 const hook = new Webhook(process.env.WEBHOOK);
 let db = new FreshDB();
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
-let timeStart = new Date().toISOString()
-  .replace(/T/, ' ')
-  .replace(/\..+/, '')
 
+// DATE
+let date_ob = new Date();
+let date = ("0" + date_ob.getDate()).slice(-2);
+let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+let year = date_ob.getFullYear();
+let hours = date_ob.getHours();
+if (hours > 4) {
+  hours = hours - 4;
+} else if (hours < 4) {
+  hours = hours + 12;
+  hours = hours - 4;
+}
+let minutes = date_ob.getMinutes();
+let seconds = date_ob.getSeconds();
+
+const time =
+  year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds;
+ 
 /*
  The following code is under MIT license and should be treated like so. Refer to legal information for more about the MIT license
 */
@@ -57,7 +75,7 @@ loadCommands();
 // BOT - ON READY
 
 client.on(`ready`, async () => {
-  console.log(`Logged in as ${client.user.tag}! ${timeStart} - UTC(0)`);
+  console.log(`Logged in as ${client.user.tag}! ${time} - UTC(-4)`);
   client.user.setActivity(`~lang fr/en/es`);
 });
 
@@ -129,7 +147,6 @@ client.on(`message`, async (msg) => {
   }
 
   // GET THE REQUESTED COMMAND WITH REQUESTED LANGUAGE
-
   let command = `${messageArray[0]}-${db.get(`${msg.guild.id}`)}`;
 
   // TIME CALCULATING FOR DEBUGGING
@@ -139,7 +156,7 @@ client.on(`message`, async (msg) => {
   if (commandFile) {
     commandFile.run(client, msg, args);
     let duration1 = end1();
-    let consoleDuration = `${duration1}`
+    let consoleDuration = `${duration1}`;
     duration1 = duration1 * 1000;
     duration1 = Math.round(duration1);
     duration1 = duration1 + 1;
@@ -157,7 +174,7 @@ client.on(`guildCreate`, (guild) => {
 
   const newServerEmbed = new MessageBuilder()
     .setTitle(`New Server Joined !`)
-    .addField(`New server`, `${guild.name} - ${guild.invi}`)
+    .addField(`New server`, `${guild.name} - ${guild.id}`)
     .addField(`Information`, `${guild.memberCount} members `)
     .setColor(`#00b0f4`)
     .setTimestamp();
@@ -175,10 +192,12 @@ client.on(`guildCreate`, (guild) => {
         `\n` +
         `Salut ! Merci de m'avoir ajouté sur votre serveur ! Choissisez votre language en envoyant **~lang fr** (pour français) !` +
         `\n` +
-        `¡Hola! ¡Gracias por agregarme a su servidor! ¡Elija su idioma enviando **~lang es** (para español)`
+        `¡Hola! ¡Gracias por agregarme a su servidor! ¡Elija su idioma enviando **~lang es** (para español)` + `\n` + `Aide/Help/Ayuda : **https://discord.gg/dtbHZPz**`
     );
     console.log(`New server joined !`);
   }, 3000);
 });
+
+keepAlive();
 
 client.login(process.env.TOKEN);
